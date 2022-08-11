@@ -59,6 +59,7 @@ const Phone = ({ loaded }) => {
 						borderRadius={"50%"}
 						w="35px"
 						h="35px"
+						alt="profile"
 					></Image>
 				</SkeletonCircle>
 				<Box ml="3">
@@ -147,7 +148,11 @@ const Phone = ({ loaded }) => {
 				</Box>
 			</Flex>
 			<Skeleton isLoaded={loaded}>
-				<Image src="/kitchen.jpg"></Image>
+				<Image
+					src="/kitchen.jpg"
+					h="421.933px"
+					alt="MarbleImage"
+				></Image>
 			</Skeleton>
 			<Flex px={3} py={3}>
 				<VStack align="left" w="88%">
