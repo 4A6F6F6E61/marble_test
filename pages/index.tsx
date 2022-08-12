@@ -13,7 +13,7 @@ import {
 	Input,
 	IconButton,
 } from "@chakra-ui/react"
-import { BsSuitHeart } from "react-icons/bs"
+import { BsSuitHeart, BsFillSuitHeartFill } from "react-icons/bs"
 import { RiMessage2Fill } from "react-icons/ri"
 import { AiOutlineExclamationCircle } from "react-icons/ai"
 import { IoMdPaperPlane } from "react-icons/io"
@@ -50,9 +50,18 @@ const Phone = ({ loaded }) => {
 	const [modal, setModal] = useState(false)
 	const toggleModal = () => setModal(!modal)
 
+	const [likes, setLikes] = useState(1)
+	const [liked, setLiked] = useState(false)
+
+	const toggleLike = () => {
+		setLiked(!liked)
+		setLikes(liked ? likes - 1 : likes + 1)
+	}
+
 	const blue = "#007AFF"
 	const textColor = "gray.900"
 	const gray = "gray"
+
 	return (
 		<>
 			<Flex direction={"column"} h="100%">
@@ -83,7 +92,11 @@ const Phone = ({ loaded }) => {
 					<Box ml="3">
 						<Flex>
 							<Skeleton h={"14px"} isLoaded={loaded}>
-								<Text color={textColor} fontSize="12px">
+								<Text
+									color={textColor}
+									fontSize="12px"
+									cursor={"pointer"}
+								>
 									waldgeist
 								</Text>
 							</Skeleton>
@@ -127,12 +140,24 @@ const Phone = ({ loaded }) => {
 						</Flex>
 					</Box>
 					<Spacer />
-					<Box ml="3">
-						<Center>
-							<Icon
-								as={BsSuitHeart}
-								color={textColor}
-								fontSize="15px"
+					<Box ml="3" w="1rem" mt=".2rem">
+						<Center mb="0.1rem">
+							<IconButton
+								h="12px"
+								w="12px"
+								variant={"clear"}
+								aria-label="likes"
+								onClick={toggleLike}
+								icon={
+									<Icon
+										as={
+											liked
+												? BsFillSuitHeartFill
+												: BsSuitHeart
+										}
+										color={liked ? blue : textColor}
+									/>
+								}
 							/>
 						</Center>
 						<Center w="100%">
@@ -143,17 +168,19 @@ const Phone = ({ loaded }) => {
 									w="18px"
 									textAlign="center"
 								>
-									1
+									{likes}
 								</Text>
 							</Skeleton>
 						</Center>
 					</Box>
-					<Box ml="3">
-						<Center>
-							<Icon
-								as={RiMessage2Fill}
-								color={blue}
-								fontSize="15px"
+					<Box ml="3" w="1rem" mt=".2rem">
+						<Center mb="0.1rem">
+							<IconButton
+								h="12px"
+								w="12px"
+								variant="clear"
+								aria-label="comments"
+								icon={<Icon as={RiMessage2Fill} color={blue} />}
 							/>
 						</Center>
 						<Center w="100%">
