@@ -1,0 +1,64 @@
+@keyframes example {
+	0% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.ios-modal-wrapper {
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 10;
+
+	&.active {
+		display: flex;
+		.ios-modal {
+			animation: example 0.1s;
+		}
+	}
+
+	.ios-modal {
+		margin: 0 auto;
+		background: #fff;
+		border-radius: 10px;
+		text-align: center;
+		z-index: 999;
+
+		.buttons {
+			border-top: solid 1px #bababa;
+
+			.cancel,
+			.agree {
+				width: 50%;
+				display: block;
+				float: left;
+				box-sizing: border-box;
+				cursor: pointer;
+			}
+			.cancel {
+				border-right: solid 1px #bababa;
+				&.disabled {
+					display: none;
+				}
+			}
+			.cancel.disabled + .agree {
+				width: 100%;
+			}
+
+			&:after {
+				content: "";
+				display: "table";
+				clear: both;
+			}
+		}
+	}
+}
