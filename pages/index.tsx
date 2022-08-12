@@ -32,13 +32,11 @@ const Marble = () => {
 		}, 2000)
 	}, [setLoaded, loaded])
 	return (
-		<Center h="100vh" zIndex={0} bg="black">
+		<Center h="100vh">
 			<Box
 				// h="650px"
 				h="100%"
 				w="300px"
-				zIndex={0}
-				bg="white"
 			>
 				<Phone loaded={loaded} />
 			</Box>
