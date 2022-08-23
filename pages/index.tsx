@@ -76,7 +76,7 @@ const Phone = ({ loaded }) => {
 				>
 					<SkeletonCircle isLoaded={loaded} w="35px" h="35px">
 						<Image
-							src="https://pps.whatsapp.net/v/t61.24694-24/56340206_428180251080709_1639700479321571328_n.jpg?ccb=11-4&oh=01_AVyWGoQ8_WrxqFlYJZIpNjLodkVyG_NqI4iLQ4V99wcY3w&oe=63032811"
+							src="/user.jpeg"
 							borderRadius={"50%"}
 							w="35px"
 							h="35px"
